@@ -1,7 +1,5 @@
 import 'reflect-metadata'
 
-import '../../../config/module-alias'
-
 import 'express-async-errors'
 import { env } from 'process'
 import { config } from 'dotenv'

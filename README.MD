@@ -58,3 +58,8 @@ ou utilizando o próprio swagger configurado no projeto. para utilizar o swagger
 Após acessar a interface do swagger é necessário apenar abrir a rota users cadastrada e clicar no botão execute
 
 ![Swagger da aplicação.](./images/swagger.png "Swagger")
+
+## Testes da API
+Caso deseje executar os testes é necessário apenas acessar a raiz do projeto por qualquer terminal e executar o seguinte comando:
+**npm run test** - sem exibir a cobertura dos testes
+**npm run test:coverage** -- com cobertura dos testes

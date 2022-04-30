@@ -1,13 +1,37 @@
-import { Address } from '@/modules/types/AddressType'
-import { User } from '@/modules/types/UserType'
-import axios from 'axios'
+import { Address } from '@/types/AddressType'
+import { User } from '@/types/UserType'
+import { GetUserAddressMockApiData } from '@/utils/GetUserAddressMockApiData'
 import { injectable } from 'tsyringe'
+import { InvalidRequestError } from '../../errors/InvalidRequestError'
 
 @injectable()
 class GetUserAddressUseCase {
-  async execute (user: User): Promise<Address> {
-    const requestData = await axios.get(`${process.env.MOCKAPIBASEPATH as string}/users/${user.id}/address`)
-    return requestData.data
+  constructor (
+    private readonly getUserAddressMockApiData: GetUserAddressMockApiData
+  ) {}
+
+  async execute (users: User[]): Promise<Address[]> {
+    try {
+      const address = await this.getUserAddressMockApiData.getUserAddressData(
+        users
+      )
+
+      return address.flat(1).map((address) => {
+        return {
+          addressId: address.id as string,
+          address: `${address.street} ${address.number}`,
+          country: address.country,
+          city: address.city,
+          state: address.state,
+          zipcode: address.zipcode,
+          userId: address.userId
+        }
+      })
+    } catch (e: any) {
+      throw new InvalidRequestError(
+        `Erro ao buscar os endereços dos usuários ${e}`
+      )
+    }
   }
 }
 

@@ -1,5 +1,10 @@
 module.exports = {
-  collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
+  collectCoverageFrom: ['<rootDir>/src/**/*.ts',
+    '!<rootDir>/src/**/*Controller.ts',
+    '!<rootDir>/src/shared/**/*.ts',
+    '!<rootDir>/src/types/*.ts',
+    '!<rootDir>/src/**/errors/**/*.ts'
+  ],
   coverageDirectory: 'coverage',
   coverageProvider: 'babel',
   moduleNameMapper: {
@@ -13,5 +18,7 @@ module.exports = {
   testEnvironment: 'node',
   transform: {
     '\\.ts$': 'ts-jest'
-  }
+  },
+  preset: 'ts-jest',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js']
 }

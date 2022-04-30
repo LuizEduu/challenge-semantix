@@ -9,7 +9,9 @@ class GetUsersController {
   ): Promise<Response<Response>> {
     const getUsersUseCase = container.resolve(GetUsersUseCase)
 
-    const users = await getUsersUseCase.execute()
+    const { page, limit, sortBy, order } = request.query
+
+    const users = await getUsersUseCase.execute(page as string, limit as string, sortBy as string, order as string)
 
     return response.status(200).json(users)
   }

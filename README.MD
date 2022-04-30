@@ -8,6 +8,14 @@ Para o projeto foi utilizado as seguintes tecnologias:
 * Docker v20.x.x
 * Jest v27.x.x
 
+## Algumas considerações
+* infelizmente não consegui utilizando os child_process do nodeJS. por isso optei por utilizar Promise.all e otimizar ao máximo que consegui a execuções das requisições.
+* no momento que estou realizando o teste o paramêtro **countryCode** não está sendo enviado na api de endereços.
+
+![countryCode.](./images/countryCode.png)
+
+* enviei o código com o .env file para facilitar a execução. porém sei que o ideal é que este arquivo não seja enviado para o repositório remoto.
+
 ## Como executar
 
 ### Com docker
@@ -49,4 +57,4 @@ ou utilizando o próprio swagger configurado no projeto. para utilizar o swagger
 
 Após acessar a interface do swagger é necessário apenar abrir a rota users cadastrada e clicar no botão execute
 
-![Swagger da aplicação.](./images/swagger.png "This is a sample image.")
+![Swagger da aplicação.](./images/swagger.png "Swagger")

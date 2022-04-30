@@ -25,7 +25,7 @@
             }
           },
           {
-            "description": "limite de registros por página. caso não seja informado o padrão é 10",
+            "description": "limite de registros por página. caso não seja informado o padrão é 10 o limite de busca são 15 registros por requisição",
             "in": "query",
             "required": false,
             "name": "limit",
@@ -34,7 +34,7 @@
             }
           },
           {
-            "description": "realiza a ordenação dos dados por um campo. caso não seja informado o padrão é pelo firstName",
+            "description": "realiza a ordenação dos dados por um campo. caso não seja informado o padrão é pelo firstName lista de campos disponíveis para sort dos dados: createdAt, firstName, email, lastName, id",
             "in": "query",
             "required": false,
             "name": "sortBy",

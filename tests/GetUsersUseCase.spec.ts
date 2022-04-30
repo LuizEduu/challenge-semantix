@@ -67,11 +67,49 @@ describe('get users use case', () => {
     expect(users).toHaveLength(1)
   })
 
+  it('shoud be able to returns a formated data with sortBy equal desc', async () => {
+    const users = await getUserUseCase.execute('1', '10', 'desc')
+
+    expect(users[0]).toHaveProperty('id')
+  })
+
   it('shoud be able to throws InvalidRequest error with invalid request', async () => {
     getUsersMockApiData.getUsersData = jest.fn().mockRejectedValue(new Error())
 
     try {
       await getUserUseCase.execute()
+    } catch (e) {
+      expect(e).toBeInstanceOf(InvalidRequestError)
+    }
+  })
+
+  it('shoud be able to throws error with invalid page parameter', async () => {
+    try {
+      await getUserUseCase.execute('any_page')
+    } catch (e) {
+      expect(e).toBeInstanceOf(InvalidRequestError)
+    }
+  })
+
+  it('shoud be able to throws error with limit parameter Bigger or equal 15', async () => {
+    try {
+      await getUserUseCase.execute('1', '16')
+    } catch (e) {
+      expect(e).toBeInstanceOf(InvalidRequestError)
+    }
+  })
+
+  it('shoud be able to throws error with sortBy equal avatar', async () => {
+    try {
+      await getUserUseCase.execute('1', '10', 'avatar')
+    } catch (e) {
+      expect(e).toBeInstanceOf(InvalidRequestError)
+    }
+  })
+
+  it('shoud be able to throws error with invalid sortBy', async () => {
+    try {
+      await getUserUseCase.execute('1', '10', 'any_sort_by')
     } catch (e) {
       expect(e).toBeInstanceOf(InvalidRequestError)
     }

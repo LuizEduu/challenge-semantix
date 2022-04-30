@@ -49,7 +49,7 @@ Após isso é necessário realizar uma requisição get para o endereço
 * email
 * lastName
 
-**order** - paramêtro para ordenação dos dados. caso não seja informado por padrão é asc. é aceito pela api ou **asc** ou **desc**
+* **order** - paramêtro para ordenação dos dados. caso não seja informado por padrão é asc. é aceito pela api ou **asc** ou **desc**
 
 ou utilizando o próprio swagger configurado no projeto. para utilizar o swagger é necessário apenar acessar em qualquer navegador o endereço:
 
@@ -61,5 +61,5 @@ Após acessar a interface do swagger é necessário apenar abrir a rota users ca
 
 ## Testes da API
 Caso deseje executar os testes é necessário apenas acessar a raiz do projeto por qualquer terminal e executar o seguinte comando:
-**npm run test** - sem exibir a cobertura dos testes
-**npm run test:coverage** -- com cobertura dos testes
+* **npm run test** - sem exibir a cobertura dos testes
+* **npm run test:coverage** -- com cobertura dos testes

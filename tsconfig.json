@@ -10,6 +10,7 @@
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
     "module": "commonjs",
     "baseUrl": "src",
     "paths": {

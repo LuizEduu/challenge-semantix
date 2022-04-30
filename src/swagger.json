@@ -1,0 +1,66 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Challenge_semantix documentation",
+    "description": "rest api responsável por buscar dados dos usuários, tratar e devolver da maneira correta.",
+    "version": "1.0.0",
+    "contatct": {
+      "email": "l.eduardo8316@gmail.com"
+    }
+  },
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": ["users"],
+        "summary": "find users",
+        "description": "busca por usuários",
+        "parameters": [
+          {
+            "description": "número da pagina a ser buscada. caso não seja informado por padrão é 1",
+            "in": "query",
+            "required": false,
+            "name": "page",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "limite de registros por página. caso não seja informado o padrão é 10",
+            "in": "query",
+            "required": false,
+            "name": "limit",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "realiza a ordenação dos dados por um campo. caso não seja informado o padrão é pelo firstName",
+            "in": "query",
+            "required": false,
+            "name": "sortBy",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "ordenação dos dados. pode receber os valores asc ou desc. caso não seja informado por padrão é asc",
+            "in": "query",
+            "required": false,
+            "name": "order",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return users"
+          },
+          "400": {
+            "description": "Requisição inválida"
+          }
+        }
+      }
+    }
+  }
+}

@@ -9,7 +9,7 @@ Para o projeto foi utilizado as seguintes tecnologias:
 * Jest v27.x.x
 
 ## Algumas considerações
-* infelizmente não consegui utilizando os child_process do nodeJS. por isso optei por utilizar Promise.all e otimizar ao máximo que consegui a execuções das requisições.
+* infelizmente não consegui utilizando os child_process do nodeJS. por isso optei por utilizar Promise.all e otimizar ao máximo que consegui as execuções das requisições.
 * no momento que estou realizando o teste o paramêtro **countryCode** não está sendo enviado na api de endereços.
 
 ![countryCode.](./images/countryCode.png)
@@ -19,7 +19,7 @@ Para o projeto foi utilizado as seguintes tecnologias:
 ## Como executar
 
 ### Com docker
-Caso tenha o docker instalado e queira utilizar é necessário apenas acessar a página do projeto e executar o seguinte comando no terminal:
+Caso tenha o docker instalado e queira utilizar é necessário apenas acessar a pasta do projeto e executar o seguinte comando no terminal:
 * **docker-compose up -d** o docker vai fazer o build do container e iniciar a aplicação
 
 caso queira acompanhar os logs da aplicação é necessário apenas executar o seguinte comando no terminal:
